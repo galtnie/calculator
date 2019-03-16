@@ -1,0 +1,76 @@
+@font-face {
+  font-family: digital;
+  src: url(fonts/digital-7.ttf);
+}
+
+
+
+body {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    background-color: lightgray;
+    height: 50px;
+    width: 700px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    
+    font: 60px digital;
+    color: darkblue;
+    padding-left: 20px;
+}
+
+#keyboard {
+    
+    position: absolute;
+    background-color: darkgray;
+    top: 200px;
+    width: 350px;
+    height: 200px;
+
+    /* position: relative; */
+    /*  */
+
+}
+
+.button {
+    /* display:inline;*/
+    float: left; 
+    background-color: #6400ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.digitButton {
+    /* display:inline;*/
+    float: left; 
+    background-color: #1570E6;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
