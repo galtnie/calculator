@@ -3,9 +3,11 @@
   src: url(fonts/digital-7.ttf);
 }
 
-
-
 body {
+    background: black;
+}
+
+main {
     background: black;
     display: flex;
     flex-direction: column;
@@ -13,34 +15,19 @@ body {
     align-items: center;
 }
 
-input {
+.screen {
     background-color: lightgray;
     height: 50px;
     width: 700px;
     margin-top: 100px;
     margin-bottom: 50px;
     border-radius: 15px;
-    
-    font: 60px digital;
+    font: 60px digital, Arial, Helvetica, sans-serif;
     color: darkblue;
     padding-left: 20px;
 }
 
-#keyboard {
-    
-    position: absolute;
-    background-color: darkgray;
-    top: 200px;
-    width: 350px;
-    height: 200px;
-
-    /* position: relative; */
-    /*  */
-
-}
-
-.button {
-    /* display:inline;*/
+.other-button {
     float: left; 
     background-color: #6400ff;
     padding-left: 10px;
@@ -51,13 +38,31 @@ input {
     margin: 10px;
     border-radius: 11px;
     border: 2px solid white;
-    font: bold Arial;
+    font: bold Arial, Helvetica, sans-serif;
     font-size: 25px;
     text-align: center;
     color: white;
 }
 
-.digitButton {
+.math-operation-button {
+    /* display:inline;*/
+    float: left; 
+    background-color: #9920ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.digit-button {
     /* display:inline;*/
     float: left; 
     background-color: #1570E6;
@@ -69,8 +74,37 @@ input {
     margin: 10px;
     border-radius: 11px;
     border: 2px solid white;
-    font: bold Arial;
+    font: bold Arial, Helvetica, sans-serif;
     font-size: 25px;
     text-align: center;
     color: white;
 }
+
+.digit-button:hover{
+    border: 2px solid orchid;
+} 
+ 
+.digit-button:active{
+    border: 2px solid orchid;
+    color: orchid;
+}   
+
+.math-operation-button:hover{
+    border: 2px solid orange;
+} 
+ 
+.math-operation-button:active{
+    border: 2px solid orange;
+    color: orange;
+}   
+
+.other-button:hover{
+    border: 2px solid lightseagreen;
+} 
+ 
+.other-button:active{
+    border: 2px solid lightseagreen;
+    color: lightseagreen;
+}   
+
+
