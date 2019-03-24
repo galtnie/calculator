@@ -15,9 +15,10 @@ let dropResult = false;
 
 const mathOperationKeys = {
     'add': 43,
-    'subtract': 49,
+    'subtract': 45,
     'multiply': 42,
-    'divide': 47
+    'divide': 47,
+    'remainder in division': 37
 };
 const equalKeys = {
     'equal mark': 61,
@@ -25,4 +26,4 @@ const equalKeys = {
 };
 const decimalPointKey = 46;
 
-const clearKey;
+let clearKey;

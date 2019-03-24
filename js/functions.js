@@ -13,7 +13,7 @@ const calculation = function () {                   // actual calculation when "
         case "division":
             result /= secondNumber;
             break;
-        case "divisionWithoutRemainder":
+        case "remainderInDivision":
             result %= secondNumber;
             break;
         default:

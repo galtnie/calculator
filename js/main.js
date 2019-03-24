@@ -1,4 +1,4 @@
-calculator.addEventListener('click', e=> {              //to press  button
+calculator.addEventListener('click', e=> {              
     if (e.target.classList.contains('digit-button')) {
         if (catchNonNumberResult(screen.value)) {
             return false
@@ -7,7 +7,6 @@ calculator.addEventListener('click', e=> {              //to press  button
         eraseZeroInputtedAtBeginningOfInteger();
         inputDigitDecidingIfItIsNewNumber(selectedNumber);
     } 
-
     else if (e.target.classList.contains('math-operation-button')) {
         if (catchNonNumberResult(screen.value)) {
             return false
@@ -19,7 +18,6 @@ calculator.addEventListener('click', e=> {              //to press  button
         if (result === null) {
             result = parseFloat(screen.value);
         }
-
         newNumber = true;
         secondNumber = null;
         switch (selectedOperation) {
@@ -36,7 +34,7 @@ calculator.addEventListener('click', e=> {              //to press  button
                 mathOperation = "division";
                 break;
             case "%":
-                mathOperation = "divisionWithoutRemainder";
+                mathOperation = "remainderInDivision";
                 break;
             default:
                 mathOperation = null;
@@ -46,7 +44,7 @@ calculator.addEventListener('click', e=> {              //to press  button
     }
 });
 
-clearSign.addEventListener("click", function(e){      //c
+clearSign.addEventListener("click", function(e){      
     screen.value = "";
     dropResult = false;
     secondNumber= null;
@@ -56,7 +54,7 @@ clearSign.addEventListener("click", function(e){      //c
     e.preventDefault();
 });
 
-backspaceSign.addEventListener("click", function(e){      //<-
+backspaceSign.addEventListener("click", function(e){      
     e.preventDefault();
     if (!newNumber){
         screen.value = screen.value.slice(0,-1);
@@ -66,67 +64,63 @@ backspaceSign.addEventListener("click", function(e){      //<-
     }    
 });
 
-plusMinusSign.addEventListener("click", function(e){      // +/-
+plusMinusSign.addEventListener("click", function(e){    
     e.preventDefault();
     if (catchNonNumberResult(screen.value)) {         
         return false     
-    }
-
-    if (screen.value === "0") return false;
-
+    };
+    if (screen.value === "0") {
+        return false;
+    };
     if (dropResult) {
         dropResult = false;
-    }
-
+    };
     screen.value.charAt(0) === "-" ? screen.value = screen.value.substring(1) : screen.value = "-" + screen.value;
 });
 
-decimalPointSign.addEventListener("click", function(e){      //.
+decimalPointSign.addEventListener("click", function(e){     
     e.preventDefault();
     if (catchNonNumberResult(screen.value)) {         
         return false     
     };
-    
     if (dropResult) {
         result = null;
         dropResult = false;
-    }
-
+    };
     if (newNumber){
         screen.value = "0"
         newNumber = false
-    }
-
+    };
     screen.value += "."
 });
 
-equalSign.addEventListener("click", function(e){      // =
+equalSign.addEventListener("click", function(e){      
     e.preventDefault();
     if (catchNonNumberResult(screen.value)) {         
         return false     
     };
 
-    if (screen.value === "") {                                      // if nothing is added
-        mathOperation = null;                                                // just in case some calculation button has already been pressed 
+    if (screen.value === "") {                                      
+        mathOperation = null;                                                 
         return false;
 
-    }   else if (result === null && mathOperation === null) {                // if no factor is inputted and calculation type is not specified
+    }   else if (result === null && mathOperation === null) {                
         result = parseFloat(screen.value);
 
-    }   else if (result !== null && mathOperation === null) {                // if only one factor is inputted but calculation type is still not specified
+    }   else if (result !== null && mathOperation === null) {                
         screen.value = result;
 
-    }   else if (result !== null && mathOperation !== null && newNumber === true && secondNumber === null) {       // if only one factor is inputted and calculation type is specified (but the second secondNumber is not inputted) 
+    }   else if (result !== null && mathOperation !== null && newNumber === true && secondNumber === null) {        
         secondNumber = result;
         calculation();                                                                               
         screen.value = result;
 
-    }   else if (result !== null && mathOperation !== null && newNumber === false && secondNumber === null) {      // if only one factor is known, mathOperation is specified and "=" is pressed when there is some number in the screen.value                                                                             
+    }   else if (result !== null && mathOperation !== null && newNumber === false && secondNumber === null) {                                                                   
         secondNumber = parseFloat(screen.value);
         calculation();
         screen.value = result;
 
-    }   else if (secondNumber !== null) {       // if both factors and calculation type is specified                                                                             
+    }   else if (secondNumber !== null) {                                                                                  
         calculation();
         screen.value = result;
     }  
@@ -135,18 +129,14 @@ equalSign.addEventListener("click", function(e){      // =
     newNumber = true;
 });
 
-
-
-document.onkeypress = function (e) {      
-    if (e.target === screen){
+document.onkeypress = function (e) {   
         e.preventDefault();
         if (catchNonNumberResult(screen.value)) {
             return false
         };
-        console.log(e.keyCode)
-
         if (!isNaN(e.key)) {
             const selectedNumber = e.key;
+           
             eraseZeroInputtedAtBeginningOfInteger();
             inputDigitDecidingIfItIsNewNumber(selectedNumber);
 
@@ -158,7 +148,7 @@ document.onkeypress = function (e) {
             if (result === null) {
                 result = parseFloat(screen.value);
             }
-
+        
             newNumber = true;
             secondNumber = null;
             switch (selectedOperation) {
@@ -168,42 +158,42 @@ document.onkeypress = function (e) {
                 case "-":
                     mathOperation = "subtraction";
                     break;
-                case "x":
+                case "*":
                     mathOperation = "multiplication";
                     break;
                 case "/":
                     mathOperation = "division";
                     break;
                 case "%":
-                    mathOperation = "divisionWithoutRemainder";
+                    mathOperation = "remainderInDivision";
                     break;
                 default:
                     mathOperation = null;
                     screen.value = "ERROR";
-                    break;
+                    break; 
             }
         } else if (Object.values(equalKeys).includes(e.keyCode)) {
-            if (screen.value === "") {                                      // if nothing is added
-                mathOperation = null;                                                // just in case some calculation button has already been pressed 
+            if (screen.value === "") {                                      
+                mathOperation = null;                                              
                 return false;
 
-            } else if (result === null && mathOperation === null) {                // if no factor is inputted and calculation type is not specified
+            } else if (result === null && mathOperation === null) {                
                 result = parseFloat(screen.value);
 
-            } else if (result !== null && mathOperation === null) {                // if only one factor is inputted but calculation type is still not specified
+            } else if (result !== null && mathOperation === null) {                
                 screen.value = result;
 
-            } else if (result !== null && mathOperation !== null && newNumber === true && secondNumber === null) {       // if only one factor is inputted and calculation type is specified (but the second secondNumber is not inputted) 
+            } else if (result !== null && mathOperation !== null && newNumber === true && secondNumber === null) {      
                 secondNumber = result;
                 calculation();
                 screen.value = result;
 
-            } else if (result !== null && mathOperation !== null && newNumber === false && secondNumber === null) {      // if only one factor is known, mathOperation is specified and "=" is pressed when there is some number in the screen.value                                                                             
+            } else if (result !== null && mathOperation !== null && newNumber === false && secondNumber === null) {                                                                                 
                 secondNumber = parseFloat(screen.value);
                 calculation();
                 screen.value = result;
 
-            } else if (secondNumber !== null) {       // if both factors and calculation type is specified                                                                             
+            } else if (secondNumber !== null) {                                                                                  
                 calculation();
                 screen.value = result;
             }
@@ -219,7 +209,17 @@ document.onkeypress = function (e) {
                 newNumber = false
             }
             screen.value += "."
-        }
-    }
+        }   
 }
 
+document.onkeydown = function (e) {
+    if (e.keyCode === 46) {
+        screen.value = "";
+        dropResult = false;
+        secondNumber = null;
+        mathOperation = null;
+        result = null;
+        newNumber = true;
+        e.preventDefault();
+    }
+}
