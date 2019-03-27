@@ -130,7 +130,7 @@ equalSign.addEventListener("click", function(e){
 });
 
 document.onkeypress = function (e) {   
-        e.preventDefault();
+       e.preventDefault();
         if (catchNonNumberResult(screen.value)) {
             return false
         };

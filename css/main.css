@@ -83,11 +83,13 @@ main {
 
 .digit-button:hover{
     border: 2px solid orchid;
+    
 } 
  
 .digit-button:active{
     border: 2px solid orchid;
     color: orchid;
+    background-color: #1559E6;
 }   
 
 .math-operation-button:hover{
