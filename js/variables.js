@@ -10,7 +10,7 @@ const calculator = document.querySelector('.calculator');
 let mathOperation = null;
 let result = null;
 let secondNumber= null;
-let newNumber = true;
+let isNewNumber = true;
 let dropResult = false;
 
 const mathOperationKeys = {

@@ -1,5 +1,11 @@
+const resetResult = function (mustResultBeReset) {
+    if (mustResultBeReset) {
+        result = null;
+        dropResult = false;
+    }
+}
 
-const calculation = function () {                   // actual calculation when "=" is pressed
+const handleMathOperation = function () {                   // actual calculation when "=" is pressed
     switch (mathOperation) {
         case "addition":
             result += secondNumber;
@@ -21,19 +27,16 @@ const calculation = function () {                   // actual calculation when "
         }
 };
 
-const eraseZeroInputtedAtBeginningOfInteger = function () {
+const eraseZeroStartingInteger = function () {
     if (screen.value.charAt(0) === "0" && screen.value.charAt(1) !== "." ) {
-        newNumber = true;
+        isNewNumber = true;
     }
 }
 
-const inputDigitDecidingIfItIsNewNumber = function (symbol) {
-    if (dropResult) {
-        result = null;
-        dropResult = false;
-    }
-    screen.value = newNumber ? symbol : screen.value + symbol;
-    newNumber = false;
+const inputDigit = function (symbol) {
+    resetResult(dropResult);
+    screen.value = isNewNumber ? symbol : screen.value + symbol;
+    isNewNumber = false;
 };
 
 const catchNonNumberResult = function (value) {
