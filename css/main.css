@@ -1,0 +1,113 @@
+@font-face {
+  font-family: digital;
+  src: url(fonts/digital-7.ttf);
+}
+
+body {
+    background: black;
+}
+
+main {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    background-color: lightgray;
+    height: 50px;
+    width: 700px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border: 0px;
+    border-radius: 15px;
+    font: 60px digital, Arial, Helvetica, sans-serif;
+    color: darkblue;
+    padding-left: 20px;
+}
+
+.other-button {
+    float: left; 
+    background-color: #6400ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.math-operation-button {
+    /* display:inline;*/
+    float: left; 
+    background-color: #9920ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.digit-button {
+    /* display:inline;*/
+    float: left; 
+    background-color: #1570E6;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    width: 40px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 11px;
+    border: 2px solid white;
+    font: bold Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.digit-button:hover{
+    border: 2px solid orchid;
+    
+} 
+ 
+.digit-button:active{
+    border: 2px solid orchid;
+    color: orchid;
+    background-color: #1559E6;
+}   
+
+.math-operation-button:hover{
+    border: 2px solid orange;
+} 
+ 
+.math-operation-button:active{
+    border: 2px solid orange;
+    color: orange;
+}   
+
+.other-button:hover{
+    border: 2px solid lightseagreen;
+} 
+ 
+.other-button:active{
+    border: 2px solid lightseagreen;
+    color: lightseagreen;
+}   
+
+
